@@ -14,3 +14,9 @@ Extract Code Location: Determine and display the location in the code where the 
 
 Instrument toString Method: Instrument the toString method on all objects to ensure detailed state information is available when objects are passed to the logger. Example of expected result: main.java:12 aClass.toString => "result of the toString method"
 
+
+To run it from command line
+
+java -javaagent:path_of_the_jar\log4j-tracer-0.0.1-jar-with-dependencies.jar -jar Path\YourAppToInstrument.jar
+
+
