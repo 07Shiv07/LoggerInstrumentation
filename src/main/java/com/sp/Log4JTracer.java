@@ -21,14 +21,14 @@ public class Log4JTracer {
                 AgentBuilder.Listener.StreamWriting.toSystemOut());
 
         // This gives a bit of a speedup when going through classes...
-        AgentBuilder.RawMatcher ignoreMatcher = new AgentBuilder.RawMatcher.ForElementMatchers(ElementMatchers.nameStartsWith("net.bytebuddy.").or(isSynthetic()), any(), any());
+        AgentBuilder.RawMatcher ignoreMatcher = new AgentBuilder.RawMatcher.ForElementMatchers(ElementMatchers.nameStartsWith("net.bytebuddy."));
 
 
         new AgentBuilder.Default()
                 .with(new AgentBuilder.InitializationStrategy.SelfInjection.Eager())
-                .ignore(ignoreMatcher)
-                .with(debuggingListener)
-                .type(ElementMatchers.nameEndsWith(classNameEndsWith))
+                //.ignore(ignoreMatcher)
+                //.with(debuggingListener)
+                .type(ElementMatchers.any())
                 .transform(
                         (builder, typeDescription, classLoader, module, protectionDomain)
                                 ->
